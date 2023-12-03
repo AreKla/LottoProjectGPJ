@@ -7,6 +7,14 @@ import java.util.Set;
 public class LottoNumberGenerator {
 
     public static Set<Integer> generateLottoNumbers(int min, int max, int count) {
+        if (count < 0) {
+            throw new IllegalArgumentException("Count cannot be negative");
+        }
+
+        if (min > max) {
+            throw new IllegalArgumentException("Invalid range: min is greater than max");
+        }
+
         Set<Integer> lottoNumbers = new HashSet<>();
         SecureRandom secureRandom = new SecureRandom();
 
