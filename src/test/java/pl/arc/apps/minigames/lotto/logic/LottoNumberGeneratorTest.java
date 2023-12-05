@@ -16,7 +16,7 @@ class LottoNumberGeneratorTest {
         int min = LottoConstants.MIN_LOTTO_NUMBER;
         int max = LottoConstants.MAX_LOTTO_NUMBER;
         // When
-        Set<Integer> lottoNumbers = LottoNumberGenerator.generateLottoNumbers(min, max, LottoConstants.NUMBERS_TO_PICK);
+        Set<Integer> lottoNumbers = LottoNumbersGenerator.generateLottoNumbers(min, max, LottoConstants.NUMBERS_TO_PICK);
         // Then
         assertEquals(LottoConstants.NUMBERS_TO_PICK, lottoNumbers.size(), "Set should contain 6 numbers");
     }
@@ -27,7 +27,7 @@ class LottoNumberGeneratorTest {
         int min = LottoConstants.MIN_LOTTO_NUMBER;
         int max = LottoConstants.MAX_LOTTO_NUMBER;
         // When
-        Set<Integer> lottoNumbers = LottoNumberGenerator.generateLottoNumbers(min, max, LottoConstants.NUMBERS_TO_PICK);
+        Set<Integer> lottoNumbers = LottoNumbersGenerator.generateLottoNumbers(min, max, LottoConstants.NUMBERS_TO_PICK);
         // Then
         assertTrue(lottoNumbers.stream().allMatch(num -> num >= min && num <= max),
                 "All numbers should be within the specified range");
@@ -39,7 +39,7 @@ class LottoNumberGeneratorTest {
         int min = LottoConstants.MIN_LOTTO_NUMBER;
         int max = LottoConstants.MAX_LOTTO_NUMBER;
         // When
-        Set<Integer> lottoNumbers = LottoNumberGenerator.generateLottoNumbers(min, max, LottoConstants.NUMBERS_TO_PICK);
+        Set<Integer> lottoNumbers = LottoNumbersGenerator.generateLottoNumbers(min, max, LottoConstants.NUMBERS_TO_PICK);
         // Then
         assertEquals(LottoConstants.NUMBERS_TO_PICK, new HashSet<>(lottoNumbers).size(),
                 "All numbers should be unique");
@@ -51,7 +51,7 @@ class LottoNumberGeneratorTest {
         int min = 100;
         int max = 500;
         // When
-        Set<Integer> lottoNumbers = LottoNumberGenerator.generateLottoNumbers(min, max, LottoConstants.NUMBERS_TO_PICK);
+        Set<Integer> lottoNumbers = LottoNumbersGenerator.generateLottoNumbers(min, max, LottoConstants.NUMBERS_TO_PICK);
         // Then
         assertTrue(lottoNumbers.stream().allMatch(num -> num >= min && num <= max),
                 "All numbers should be within the specified custom range");
@@ -63,7 +63,7 @@ class LottoNumberGeneratorTest {
         int min = LottoConstants.MIN_LOTTO_NUMBER;
         int max = LottoConstants.MAX_LOTTO_NUMBER;
         // When
-        Set<Integer> lottoNumbers = LottoNumberGenerator.generateLottoNumbers(min, max, 1);
+        Set<Integer> lottoNumbers = LottoNumbersGenerator.generateLottoNumbers(min, max, 1);
         // Then
         assertEquals(1, lottoNumbers.size(), "Set should contain 1 number");
     }
@@ -74,7 +74,7 @@ class LottoNumberGeneratorTest {
         int min = LottoConstants.MIN_LOTTO_NUMBER;
         int max = LottoConstants.MAX_LOTTO_NUMBER;
         // When
-        Set<Integer> lottoNumbers = LottoNumberGenerator.generateLottoNumbers(min, max, max - min + 1);
+        Set<Integer> lottoNumbers = LottoNumbersGenerator.generateLottoNumbers(min, max, max - min + 1);
         // Then
         assertEquals(max - min + 1, lottoNumbers.size(), "Set should contain maximum possible numbers");
     }
@@ -85,7 +85,7 @@ class LottoNumberGeneratorTest {
         int min = 1;
         int max = Integer.MAX_VALUE - 1;
         // When
-        Set<Integer> lottoNumbers = LottoNumberGenerator.generateLottoNumbers(min, max, LottoConstants.NUMBERS_TO_PICK);
+        Set<Integer> lottoNumbers = LottoNumbersGenerator.generateLottoNumbers(min, max, LottoConstants.NUMBERS_TO_PICK);
         // Then
         assertTrue(lottoNumbers.stream().allMatch(num -> num >= min && num <= max),
                 "All numbers should be within the specified large range");
@@ -99,7 +99,7 @@ class LottoNumberGeneratorTest {
         int negativeCount = -1;
         // Then
         assertThrows(IllegalArgumentException.class, () -> {
-            LottoNumberGenerator.generateLottoNumbers(min, max, negativeCount);
+            LottoNumbersGenerator.generateLottoNumbers(min, max, negativeCount);
         }, "Should throw IllegalArgumentException for negative count");
     }
 
@@ -111,7 +111,7 @@ class LottoNumberGeneratorTest {
         int count = 6;
         // Then
         assertThrows(IllegalArgumentException.class, () -> {
-            LottoNumberGenerator.generateLottoNumbers(invalidMin, invalidMax, count);
+            LottoNumbersGenerator.generateLottoNumbers(invalidMin, invalidMax, count);
         }, "Should throw IllegalArgumentException for invalid range");
     }
 }
