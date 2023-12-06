@@ -9,8 +9,8 @@ import java.util.Set;
 
 public class LottoGame {
 
-    private UserNumbers userNumbers;
-    private Scanner scanner;
+    private final UserNumbers userNumbers;
+    private final Scanner scanner;
 
     public LottoGame(Scanner scanner) {
         this.scanner = scanner;
@@ -18,8 +18,8 @@ public class LottoGame {
     }
 
     public void play() {
-        userNumbers.enterUserNumbers(scanner, LottoConstants.NUMBERS_TO_PICK,
-                LottoConstants.MIN_LOTTO_NUMBER, LottoConstants.MAX_LOTTO_NUMBER);
+        userNumbers.enterUserNumbers(scanner, LottoConstants.MIN_LOTTO_NUMBER, LottoConstants.MAX_LOTTO_NUMBER,
+                LottoConstants.NUMBERS_TO_PICK);
 
         Set<Integer> lottoNumbers = LottoNumbersGenerator.generateLottoNumbers(
                 LottoConstants.MIN_LOTTO_NUMBER,
@@ -48,4 +48,3 @@ public class LottoGame {
         return count;
     }
 }
-
