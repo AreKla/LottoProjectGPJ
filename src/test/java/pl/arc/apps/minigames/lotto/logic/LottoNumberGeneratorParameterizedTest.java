@@ -14,7 +14,7 @@ public class LottoNumberGeneratorParameterizedTest {
     @MethodSource("provideValidRangesAndCounts")
     void shouldGenerateSetWithExpectedCount(int min, int max, int count) {
         // When
-        Set<Integer> lottoNumbers = LottoNumbersGenerator.generateLottoNumbers(min, max, count);
+        Set<Integer> lottoNumbers = LottoNumberGenerator.generateLottoNumbers(min, max, count);
         // Then
         assertEquals(count, lottoNumbers.size(), "Set should contain the expected count of numbers");
     }

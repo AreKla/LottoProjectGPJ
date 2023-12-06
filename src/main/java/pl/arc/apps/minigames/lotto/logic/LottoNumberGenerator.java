@@ -4,7 +4,7 @@ import java.security.SecureRandom;
 import java.util.HashSet;
 import java.util.Set;
 
-public class LottoNumbersGenerator {
+public class LottoNumberGenerator {
 
     public static Set<Integer> generateLottoNumbers(int min, int max, int count) {
         if (count < 0) {

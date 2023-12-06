@@ -1,16 +1,17 @@
 package pl.arc.apps.minigames.lotto.logic;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
+@Data
+@NoArgsConstructor
 public class UserNumbers {
 
     private Set<Integer> userNumbers;
-
-    public UserNumbers() {
-        this.userNumbers = new HashSet<>();
-    }
 
     public void enterUserNumbers(Scanner scanner, int min, int max, int count) {
         System.out.println("Enter " + count + " numbers from " + min + " to " + max + ":");
@@ -25,10 +26,6 @@ public class UserNumbers {
             }
             userNumbers.add(number);
         }
-    }
-
-    public Set<Integer> getUserNumbers() {
-        return new HashSet<>(userNumbers);
     }
 
     private boolean isInvalidNumber(int number, int min, int max) {
