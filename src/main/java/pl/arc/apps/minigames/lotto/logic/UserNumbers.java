@@ -23,7 +23,6 @@ public class UserNumbers {
                 System.out.println("Invalid number. Please try again.");
                 continue;
             }
-
             userNumbers.add(number);
         }
     }
