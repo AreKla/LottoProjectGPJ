@@ -11,7 +11,7 @@ import java.util.Set;
 @NoArgsConstructor
 public class UserNumbers {
 
-    private Set<Integer> userNumbers;
+    private Set<Integer> userNumbers = new HashSet<>();
 
     public void enterUserNumbers(Scanner scanner, int min, int max, int count) {
         System.out.println("Enter " + count + " numbers from " + min + " to " + max + ":");
