@@ -1,5 +1,6 @@
 package pl.arc.apps.minigames.lotto;
 
+import lombok.Data;
 import pl.arc.apps.minigames.lotto.common.LottoConstants;
 import pl.arc.apps.minigames.lotto.logic.LottoNumberGenerator;
 import pl.arc.apps.minigames.lotto.logic.UserNumbers;
@@ -7,6 +8,7 @@ import pl.arc.apps.minigames.lotto.logic.UserNumbers;
 import java.util.Scanner;
 import java.util.Set;
 
+@Data
 public class LottoGame {
 
     private final UserNumbers userNumbers;
