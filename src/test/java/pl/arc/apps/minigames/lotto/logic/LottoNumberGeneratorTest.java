@@ -82,8 +82,8 @@ class LottoNumberGeneratorTest {
     @Test
     void shouldGenerateNumbersInLargeRange() {
         // Given
-        int min = 1;
-        int max = Integer.MAX_VALUE - 1;
+        int min = LottoConstants.MIN_LOTTO_NUMBER;
+        int max = LottoConstants.MAX_LOTTO_NUMBER - 1;
         // When
         Set<Integer> lottoNumbers = LottoNumberGenerator.generateLottoNumbers(min, max, LottoConstants.NUMBERS_TO_PICK);
         // Then

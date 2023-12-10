@@ -15,16 +15,21 @@ public class LottoNumberGenerator {
             throw new IllegalArgumentException("Invalid range: min is greater than max");
         }
 
+        Set<Integer> allPossibleNumbers = new HashSet<>();
+        for (int i = min; i <= max; i++) {
+            allPossibleNumbers.add(i);
+        }
+
         Set<Integer> lottoNumbers = new HashSet<>();
         SecureRandom secureRandom = new SecureRandom();
 
-        while (count > 0) {
+        while (lottoNumbers.size() < count) {
             int lottoNumber = secureRandom.nextInt(max - min + 1) + min;
-            if (!lottoNumbers.contains(lottoNumber)) {
-                lottoNumbers.add(lottoNumber);
-                count--;
-            }
+            lottoNumbers.add(lottoNumber);
         }
+
+        lottoNumbers.retainAll(allPossibleNumbers);
+
         return lottoNumbers;
     }
 }
