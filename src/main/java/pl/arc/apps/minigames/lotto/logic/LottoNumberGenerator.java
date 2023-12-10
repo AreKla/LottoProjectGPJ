@@ -6,7 +6,7 @@ import java.util.Set;
 
 public class LottoNumberGenerator {
 
-    public static Set<Integer> generateLottoNumbers(int min, int max, int count) {
+    public Set<Integer> generateLottoNumbers(int min, int max, int count) {
         if (count < 0) {
             throw new IllegalArgumentException("Count cannot be negative");
         }
