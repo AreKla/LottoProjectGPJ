@@ -38,7 +38,7 @@ public class LottoGame implements Game {
 
         System.out.println("Drawn numbers: " + lottoNumbers);
 
-        int matchedNumbers = countMatchedNumbers(userNumbers.getUserNumbers(), lottoNumbers);
+        int matchedNumbers = (int) countMatchedNumbers(userNumbers.getUserNumbers(), lottoNumbers);
         System.out.println("Number of matches: " + matchedNumbers);
 
         if (matchedNumbers == LottoConstants.NUMBERS_TO_PICK) {
@@ -48,13 +48,20 @@ public class LottoGame implements Game {
         }
     }
 
-    private int countMatchedNumbers(Set<Integer> userNumbers, Set<Integer> lottoNumbers) {
-        int count = 0;
-        for (int userNumber : userNumbers) {
-            if (lottoNumbers.contains(userNumber)) {
-                count++;
-            }
-        }
-        return count;
+//    private int countMatchedNumbers(Set<Integer> userNumbers, Set<Integer> lottoNumbers) {
+//        int count = 0;
+//        for (int userNumber : userNumbers) {
+//            if (lottoNumbers.contains(userNumber)) {
+//                count++;
+//            }
+//        }
+//        return count;
+//    }
+
+    private long countMatchedNumbers(Set<Integer> userNumbers, Set<Integer> lottoNumbers) {
+        return userNumbers.stream()
+                .filter(lottoNumbers::contains)
+                .count();
     }
+
 }
